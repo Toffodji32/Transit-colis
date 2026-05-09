@@ -108,11 +108,11 @@ class Colis
     #[ORM\JoinColumn(nullable: true)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'colisOrigine')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Warehouse $warehouseOrigine = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'colisDestination')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Warehouse $warehouseDestination = null;
 
