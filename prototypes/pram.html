@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Paramètres du Compte</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0A4D68", // Deep Corporate Blue
+            "secondary": "#FF7B54", // Muted Orange
+            "background-light": "#F5F7FA", // Light Gray Background
+            "background-dark": "#101622",
+            "text-light": "#212529", // Near-black for primary text
+            "text-dark": "#E5E7EB",
+            "text-secondary-light": "#6C757D", // Medium gray for secondary text
+            "text-secondary-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <div class="flex flex-1">
+      <!-- SideNavBar -->
+      <aside
+        class="flex w-64 flex-col gap-8 border-r border-border-light dark:border-border-dark bg-white dark:bg-background-dark p-6">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-3xl"> all_inbox </span>
+          <h1 class="text-xl font-bold text-text-light dark:text-text-dark">TransitFlow</h1>
+        </div>
+        <div class="flex flex-col justify-between flex-1">
+          <nav class="flex flex-col gap-2">
+            <a class="flex items-center gap-3 rounded-lg bg-primary/10 dark:bg-primary/20 px-3 py-2" href="#">
+              <span class="material-symbols-outlined text-primary text-2xl"> person </span>
+              <p class="text-primary text-sm font-bold leading-normal">Informations personnelles</p>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+              <span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark text-2xl">
+                notifications </span>
+              <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Notifications</p>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+              <span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark text-2xl">
+                credit_card </span>
+              <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Paiement</p>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+              <span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark text-2xl">
+                shield </span>
+              <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Sécurité</p>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+              <span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark text-2xl">
+                settings </span>
+              <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Compte</p>
+            </a>
+          </nav>
+          <div class="flex flex-col gap-1">
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+              <span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark text-2xl">
+                logout </span>
+              <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Déconnexion</p>
+            </a>
+          </div>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="flex-1 p-8 md:p-12">
+        <div class="mx-auto max-w-4xl">
+          <!-- PageHeading -->
+          <div class="mb-8">
+            <h1 class="text-text-light dark:text-text-dark text-3xl font-black leading-tight tracking-[-0.03em]">
+              Informations personnelles</h1>
+            <p
+              class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal mt-2">
+              Mettez à jour vos informations et modifiez votre photo de profil.</p>
+          </div>
+          <div class="flex flex-col gap-10">
+            <!-- Profile Section -->
+            <div class="rounded-xl border border-border-light dark:border-border-dark bg-white dark:bg-gray-800/50">
+              <div class="p-6">
+                <div class="flex w-full flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                  <div class="flex items-center gap-5">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
+                      data-alt="Avatar de Jean Dupont"
+                      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBolQ5Qjb8b6LeIlgS8bAaUg9Fj2o07ngJcY7xMKeLz50RJrxz4xk3tXav7b2DGy18zu2xOBil2jL_Iq6NwTekaIgNyxP16YL6ja1qzHJbqyIxiTP_uPMOhdFFG3zCPvGxuhJ1GizrVJXQOHssUlXxuVa_D5r82rdIR_Mk4tNscmgNFP8MFVeyj9pHPm82sjWJ1H07fssK54t2CV5ILfJnVBHSaF_WMDuyUXn1_bMoG16QkCfSqf0_40gs0T9KgCKsTgFGkX6KEFaA");'>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                      <p class="text-text-light dark:text-text-dark text-lg font-bold leading-tight">Photo de profil</p>
+                      <p
+                        class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal mt-1">
+                        PNG ou JPG, max 5Mo</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-3">
+                    <button
+                      class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em]">
+                      <span class="truncate">Retirer</span>
+                    </button>
+                    <button
+                      class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                      <span class="truncate">Télécharger</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/30 p-6 rounded-b-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <label class="flex flex-col w-full">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Prénom</p>
+                    <input
+                      class="form-input flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-3 text-base font-normal leading-normal"
+                      value="Jean" />
+                  </label>
+                  <label class="flex flex-col w-full">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Nom</p>
+                    <input
+                      class="form-input flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-3 text-base font-normal leading-normal"
+                      value="Dupont" />
+                  </label>
+                  <label class="flex flex-col w-full md:col-span-2">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Adresse
+                      e-mail</p>
+                    <input
+                      class="form-input flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-3 text-base font-normal leading-normal"
+                      value="jean.dupont@email.com" />
+                  </label>
+                  <label class="flex flex-col w-full">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Langue</p>
+                    <select
+                      class="form-select flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 p-3 text-base font-normal leading-normal">
+                      <option>Français</option>
+                      <option>English</option>
+                      <option>Español</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="flex justify-end mt-6">
+                  <button
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span class="truncate">Enregistrer les modifications</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Security Section -->
+            <div class="rounded-xl border border-border-light dark:border-border-dark bg-white dark:bg-gray-800/50">
+              <div class="p-6 border-b border-border-light dark:border-border-dark">
+                <h2 class="text-text-light dark:text-text-dark text-lg font-bold">Sécurité</h2>
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-1">Gérez votre mot de passe
+                  et l'authentification à deux facteurs.</p>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark/30 p-6 rounded-b-xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <label class="flex flex-col w-full">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Mot de passe
+                      actuel</p>
+                    <input
+                      class="form-input flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-3 text-base font-normal leading-normal"
+                      type="password" value="••••••••" />
+                  </label>
+                  <label class="flex flex-col w-full">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Nouveau mot
+                      de passe</p>
+                    <input
+                      class="form-input flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-3 text-base font-normal leading-normal"
+                      type="password" />
+                  </label>
+                  <label class="flex flex-col w-full">
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Confirmer le
+                      mot de passe</p>
+                    <input
+                      class="form-input flex w-full resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-3 text-base font-normal leading-normal"
+                      type="password" />
+                  </label>
+                </div>
+                <div class="flex justify-end mt-6">
+                  <button
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span class="truncate">Changer le mot de passe</span>
+                  </button>
+                </div>
+                <hr class="my-6 border-border-light dark:border-border-dark" />
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-text-light dark:text-text-dark text-sm font-medium">Authentification à deux facteurs
+                    </p>
+                    <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-1">Ajoutez une couche
+                      de sécurité supplémentaire à votre compte.</p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span class="truncate">Activer</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Account Danger Zone -->
+            <div class="rounded-xl border border-red-500/50 dark:border-red-500/30 bg-red-50/50 dark:bg-red-900/10">
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-red-700 dark:text-red-400">Zone de danger</h3>
+                <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-text-light dark:text-text-dark">Supprimer le compte</p>
+                    <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">Toutes vos données
+                      seront définitivement supprimées. Cette action est irréversible.</p>
+                  </div>
+                  <button
+                    class="flex items-center justify-center rounded-lg h-10 px-4 text-sm font-bold bg-red-600 text-white hover:bg-red-700 whitespace-nowrap">
+                    Supprimer mon compte
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

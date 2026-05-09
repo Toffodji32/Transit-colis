@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Expédition Manuelle - Transit Colis{% endblock %}
+
+{% block body %}
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 px-6 sm:px-10 lg:px-20 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+        <div class="flex items-center gap-4 text-gray-900 dark:text-white">
+            <a href="{{ path('app_home') }}" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-2xl">local_shipping</span>
+                <h2 class="text-lg font-bold tracking-tight">Transit Colis</h2>
+            </a>
+        </div>
+        <nav class="hidden md:flex flex-1 justify-center items-center gap-8">
+            <a class="text-gray-900 dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="{{ path('app_dashboard') }}">Dashboard</a>
+            <a class="text-primary text-sm font-semibold" href="{{ path('app_colis_new') }}">Nouvelle Expédition</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <a href="{{ path('app_dashboard') }}" class="flex items-center gap-2">
+                <span class="text-sm text-gray-600 dark:text-gray-300">{{ app.user.fullName }}</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-6xl">
+            <div class="mb-8">
+                <h1 class="text-gray-900 dark:text-white text-4xl font-black tracking-tighter">Nouvelle Expédition Nigeria-Bénin</h1>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">Remplissez les informations pour créer votre expédition</p>
+            </div>
+
+            {% for message in app.flashes('error') %}
+                <div class="mb-4 p-4 rounded-lg bg-red-100 text-red-800 border border-red-200">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <form method="post" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Form Section -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white dark:bg-gray-900/50 p-6 sm:p-8 rounded-xl shadow-sm">
+                        <h2 class="text-gray-900 dark:text-white text-2xl font-bold tracking-tight pb-6">Informations du Colis</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Poids (kg) *</label>
+                                <input type="number" name="poids" step="0.1" min="0.1" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white" />
+                            </div>
+                            <div>
+                                <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Description</label>
+                                <input type="text" name="description" placeholder="Description du contenu" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white" />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Pays d'origine *</label>
+                                <select name="pays_origine" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white">
+                                    <option value="">Sélectionnez...</option>
+                                    <option value="Nigeria">Nigeria</option>
+                                    <option value="Benin">Bénin</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Pays de destination *</label>
+                                <select name="pays_destination" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white">
+                                    <option value="">Sélectionnez...</option>
+                                    <option value="Nigeria">Nigeria</option>
+                                    <option value="Benin">Bénin</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destinataire -->
+                    <div class="bg-white dark:bg-gray-900/50 p-6 sm:p-8 rounded-xl shadow-sm mt-8">
+                        <h3 class="text-gray-900 dark:text-white text-xl font-bold tracking-tight pb-6">Informations Destinataire</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Nom complet *</label>
+                                <input type="text" name="destinataire_nom" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white" />
+                            </div>
+                            <div>
+                                <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Téléphone *</label>
+                                <input type="tel" name="destinataire_tel" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white" />
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Email *</label>
+                            <input type="email" name="destinataire_email" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white" />
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-900 dark:text-white text-sm font-medium pb-2">Adresse complète</label>
+                            <textarea name="destinataire_adresse" rows="2" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-gray-900 dark:text-white"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-4 bg-white dark:bg-gray-900/50 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-gray-900 dark:text-white text-lg font-bold mb-4">Résumé</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Les informations de l'expéditeur sont automatiquement remplies depuis votre profil.</p>
+                        
+                        <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl">person</span>
+                                <span class="text-sm font-bold text-gray-900 dark:text-white">Expéditeur</span>
+                            </div>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">{{ app.user.fullName }}</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">{{ app.user.email }}</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">{{ app.user.telephone }}</p>
+                        </div>
+
+                        <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-700 font-semibold">
+                            Créer l'expédition
+                        </button>
+
+                        <a href="{{ path('app_colis_new') }}" class="block w-full text-center mt-3 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+                            Annuler
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock %}
+

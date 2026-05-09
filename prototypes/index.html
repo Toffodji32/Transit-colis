@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>ParcelTransit - Votre expédition internationale simplifiée</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "text-light": "#111318",
+            "text-dark": "#f0f2f4",
+            "card-light": "#ffffff",
+            "card-dark": "#1e293b",
+            "border-light": "#dbdfe6",
+            "border-dark": "#334155"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- TopNavBar -->
+      <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark h-16">
+            <div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+              <span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ParcelTransit</h2>
+            </div>
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+              <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                href="#">Services</a>
+              <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                href="#">Suivi</a>
+              <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                href="#">Tarifs</a>
+              <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="#">FAQ</a>
+              <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                href="#">Contact</a>
+            </nav>
+            <div class="flex gap-2">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-card-dark text-text-light dark:text-text-dark border border-border-light dark:border-border-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-slate-700">
+                <span class="truncate">Se connecter</span>
+              </button>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700">
+                <span class="truncate">S'inscrire</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1">
+        <!-- HeroSection -->
+        <section class="relative w-full py-20 lg:py-32">
+          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            data-alt="Logistics warehouse with many packages on shelves."
+            style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVuih56apBIgcXu3wdvR4hUp0UZyx_QVyB9kUYlf8oVmi8XbmeMpUCRZHAqQLrCWSdHVyiIb7Q61JmpoK3CRXh-X5pMHNrEJgOm6-HGTLUCJmQaCjAFbDQr1OE2izLR88WCyc0xN0ykKIQpPC4tySdYRYGmCb1dq6xan0wt2aYa-BxXc6cwJbJVPxSbVr1BgfEUcreAnmL8Lv_HEeW2Ea3okLS3-LxqLnjLBcYd5ZG8k1OZqPGqrN583hObT5ft-LSt6oy1MmM_ww");'>
+          </div>
+          <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div class="flex flex-col items-center gap-6">
+              <h1 class="text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl">Votre expédition
+                internationale, simplifiée.</h1>
+              <h2 class="text-lg font-normal leading-normal max-w-2xl">Livraison de colis rapide, sécurisée et abordable
+                à travers le monde.</h2>
+              <div class="mt-4 flex flex-col sm:flex-row items-center gap-4 w-full max-w-2xl">
+                <label class="flex flex-col h-14 w-full">
+                  <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                    <div class="text-gray-500 flex bg-white items-center justify-center pl-4 rounded-l-lg border-r-0">
+                      <span class="material-symbols-outlined text-gray-400">search</span>
+                    </div>
+                    <input
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-none text-text-light focus:outline-0 focus:ring-0 border-0 bg-white h-full placeholder:text-gray-500 text-base font-normal leading-normal"
+                      placeholder="Entrez le numéro de suivi" value="" />
+                    <div class="flex items-center justify-center rounded-r-lg border-l-0 bg-white pr-2">
+                      <button
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-blue-700">
+                        <span class="truncate">Suivre</span>
+                      </button>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <button
+                class="mt-2 flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-orange-500 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-orange-600">
+                <span class="truncate">Commencer une expédition</span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- FeatureSection -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-4 text-center">
+              <h2 class="text-3xl font-bold leading-tight tracking-[-0.033em] md:text-4xl">Pourquoi expédier avec nous ?
+              </h2>
+              <p class="text-base font-normal leading-normal max-w-3xl mx-auto text-gray-600 dark:text-gray-300">Nous
+                offrons une expérience d'expédition transparente et fiable, adaptée à vos besoins.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                <span class="material-symbols-outlined text-primary text-4xl">public</span>
+                <div class="flex flex-col gap-1 mt-2">
+                  <h3 class="text-lg font-bold leading-tight">Portée mondiale</h3>
+                  <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">Livrez vos colis dans
+                    plus de 200 pays avec notre vaste réseau.</p>
+                </div>
+              </div>
+              <div
+                class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                <span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+                <div class="flex flex-col gap-1 mt-2">
+                  <h3 class="text-lg font-bold leading-tight">Sécurisé et suivi</h3>
+                  <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">Vos envois sont
+                    protégés et peuvent être suivis en temps réel.</p>
+                </div>
+              </div>
+              <div
+                class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                <span class="material-symbols-outlined text-primary text-4xl">price_check</span>
+                <div class="flex flex-col gap-1 mt-2">
+                  <h3 class="text-lg font-bold leading-tight">Tarifs compétitifs</h3>
+                  <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">Obtenez les meilleurs
+                    prix pour l'expédition internationale sans frais cachés.</p>
+                </div>
+              </div>
+              <div
+                class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                <span class="material-symbols-outlined text-primary text-4xl">support_agent</span>
+                <div class="flex flex-col gap-1 mt-2">
+                  <h3 class="text-lg font-bold leading-tight">Support 24/7</h3>
+                  <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">Notre équipe dévouée
+                    est là pour vous aider à toute heure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section class="bg-card-light dark:bg-card-dark py-16 sm:py-24">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 text-center mb-12">
+              <h2 class="text-3xl font-bold leading-tight tracking-[-0.033em] md:text-4xl">Approuvé par des entreprises
+                et des particuliers du monde entier.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                <img alt="Photo de profil de Jeanne D." class="w-20 h-20 rounded-full mb-4 border-2 border-primary"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeTpeNcY4j4Qq3SS8vyEpUSi9b1oY7l8wLdrBpY_JgjT2ra-BUG6zavVHGRsNaUFEh4xbYYWXGU1iMXUBMxfvS_EQhKfjy9suMWqR7MGhiG0LIq0_f-vgknMzKiJz_tDO2n_LWHtaqAUbBdkDEhhT7-qOfp3FJBQsF6bkKs8XuzjmqPRiWiV0iqVab2MvLqxDgOkzk1MTotF0djOOcXhQDZsHNfpBrF_ZEPtwWUOWAwQyDCG3gJs4ebOj7lg3jjBDs27oh7x4TdA4" />
+                <p class="text-gray-600 dark:text-gray-300 italic">"Service incroyablement rapide et fiable. Mon colis
+                  est arrivé en Europe en seulement trois jours. Je recommande vivement !"</p>
+                <h4 class="font-bold mt-4">Jeanne D.</h4>
+                <p class="text-sm text-gray-500">Entrepreneur</p>
+              </div>
+              <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                <img alt="Photo de profil de Marc L." class="w-20 h-20 rounded-full mb-4 border-2 border-primary"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3JO2NQNaExPPwy9sGprYz8mNpoUoBAPXY9JdHewbwTLbUmLC3tI1YW3F12AlSIwkwoW57YodtO43lzRRUqPkiV8QTN5R1LmmbDYwyzZRD0-6cTtPopRCW2o_EP7jko0__mQBzhT8OwYsYk1yJCDq80vRnfuYC2jvE4unY6dwPL6pJBa9G_-WDiQ9Me327AeOel2LmsDPdLw0LG5Qyy14bGBSop-TwBLuX4OTx0bYmONpqlOn0n1Re-ovbQ8l66BiuRzLNTwfOvp0" />
+                <p class="text-gray-600 dark:text-gray-300 italic">"Le processus de réservation était si simple et le
+                  suivi en temps réel m'a donné une grande tranquillité d'esprit. Excellent service client."</p>
+                <h4 class="font-bold mt-4">Marc L.</h4>
+                <p class="text-sm text-gray-500">Particulier</p>
+              </div>
+              <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                <img alt="Photo de profil de Sophie T." class="w-20 h-20 rounded-full mb-4 border-2 border-primary"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnwpfuIeKjg3_V0KK0zSt8RE3sI4JgAxOO9kkjlWSAF11GVAE4TOCaFX7ytWq3iszr18HstJ_PcmDIx3OkZEd0tUM0nigVqljUL_rM0FCmAHAStvG4RAudchrEO19nyjFWlosaQ12CONOzhdm4udI3pnKaFTXGY1dkZKQeloqB3_TiAV3QIxp04wTpvAEvpNdv4k9FsPfNCpGxc3nYZOYzZzf1sGrFAA3KWgSkzMOk9brrerAB6aOjUrIYFquu-s4nTH0lmW67Zh4" />
+                <p class="text-gray-600 dark:text-gray-300 italic">"Les tarifs sont très compétitifs et il n'y a pas de
+                  mauvaises surprises. C'est maintenant mon service de référence pour toutes mes expéditions."</p>
+                <h4 class="font-bold mt-4">Sophie T.</h4>
+                <p class="text-sm text-gray-500">Gérante de boutique en ligne</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Call-to-Action (CTA) Block -->
+        <section class="bg-primary text-white py-16 sm:py-24">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold leading-tight tracking-[-0.033em] md:text-4xl">Prêt à expédier en toute
+              confiance ?</h2>
+            <p class="mt-4 max-w-2xl mx-auto">Rejoignez des milliers de clients satisfaits et simplifiez vos envois
+              internationaux dès aujourd'hui.</p>
+            <div class="mt-8">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] mx-auto hover:bg-gray-200">
+                <span class="truncate">S'inscrire gratuitement</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Footer -->
+      <footer class="bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="col-span-2 md:col-span-1">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-2xl">local_shipping</span>
+                <h2 class="text-lg font-bold">ParcelTransit</h2>
+              </div>
+              <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">Votre partenaire de confiance pour les envois
+                internationaux.</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold uppercase tracking-wider">Services</h3>
+              <ul class="mt-4 space-y-2">
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Expédition
+                    Express</a></li>
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Expédition
+                    Standard</a></li>
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Suivi de colis</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold uppercase tracking-wider">Support</h3>
+              <ul class="mt-4 space-y-2">
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">FAQ</a></li>
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Contactez-nous</a>
+                </li>
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Centre d'aide</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold uppercase tracking-wider">Légal</h3>
+              <ul class="mt-4 space-y-2">
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Politique de
+                    confidentialité</a></li>
+                <li><a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary" href="#">Conditions
+                    d'utilisation</a></li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="mt-8 border-t border-border-light dark:border-border-dark pt-8 flex flex-col sm:flex-row justify-between items-center">
+            <p class="text-sm text-gray-500">© 2024 ParcelTransit. Tous droits réservés.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+              <!-- Placeholder for social media icons -->
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

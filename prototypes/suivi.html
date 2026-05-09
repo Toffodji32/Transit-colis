@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>ParcelTransit - Track Your Parcel</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#005A9C",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#212529] dark:text-gray-200">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- TopNavBar -->
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-4 sm:px-10 py-3 bg-white dark:bg-background-dark">
+        <div class="flex items-center gap-4 text-primary">
+          <div class="size-6">
+            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_330)">
+                <path clip-rule="evenodd"
+                  d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                  fill="currentColor" fill-rule="evenodd"></path>
+              </g>
+              <defs>
+                <clippath id="clip0_6_330">
+                  <rect fill="white" height="48" width="48"></rect>
+                </clippath>
+              </defs>
+            </svg>
+          </div>
+          <h2 class="text-[#212529] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ParcelTransit
+          </h2>
+        </div>
+        <div class="flex flex-1 justify-end items-center gap-8">
+          <div class="hidden md:flex items-center gap-9">
+            <a class="text-[#212529] dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+              href="#">Home</a>
+            <a class="text-[#212529] dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+              href="#">Services</a>
+          </div>
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+            <span class="truncate">Login/Sign Up</span>
+          </button>
+        </div>
+      </header>
+      <main class="flex-1 px-4 sm:px-10 lg:px-20 xl:px-40 py-10">
+        <div class="layout-content-container flex flex-col max-w-4xl mx-auto w-full">
+          <!-- HeroSection -->
+          <div class="@container mb-12">
+            <div
+              class="flex min-h-[400px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-center justify-center p-4"
+              data-alt="Abstract blue and white geometric pattern"
+              style='background-image: linear-gradient(rgba(0, 90, 156, 0.5) 0%, rgba(0, 40, 70, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdr7dDQVROOWkwLAkJa6I5vuwgl2Jv5nBHXw18jqLvQnJpKC_jQk7x2EM9UHsmDdLo-_XicaeWcDYAiluCNbMjXfxgsmwmYcexgHZKufBqGH7c10XC6FeiFku0jEGKSqkKHjeAq9KoOmqwY0IWwS2I4n8tpKMFB3SKjc_tuuZSL6WrefdR0nDUBd1zNSbwiZmjUw9E-mpIjwgAezkVv_ZjZljEbI2RafGMxw__CFykBltGUvN1DnOT7-yJuHad6Y8qNytOfvaKW8o");'>
+              <div class="flex flex-col gap-2 text-center">
+                <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                  Track Your Parcel Anytime, Anywhere
+                </h1>
+                <h2 class="text-white/90 text-sm font-normal leading-normal @[480px]:text-base max-w-xl">
+                  Enter your tracking number below to see the latest status of your shipment.
+                </h2>
+              </div>
+              <label class="flex flex-col min-w-40 h-14 w-full max-w-[480px] @[480px]:h-16">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-lg">
+                  <div
+                    class="text-[#6C757D] flex border border-gray-300 bg-white items-center justify-center pl-[15px] rounded-l-lg border-r-0">
+                    <span class="material-symbols-outlined">search</span>
+                  </div>
+                  <input
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#212529] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 bg-white h-full placeholder:text-[#6C757D] px-2 border-r-0 border-l-0 text-sm font-normal leading-normal @[480px]:text-base"
+                    placeholder="Enter your tracking number here" value="" />
+                  <div
+                    class="flex items-center justify-center rounded-r-lg border-l-0 border border-gray-300 bg-white pr-2">
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base hover:bg-primary/90 transition-colors">
+                      <span class="truncate">Track</span>
+                    </button>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <!-- Results Section -->
+          <div
+            class="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-4 sm:p-6 md:p-8">
+            <!-- SectionHeader -->
+            <h2
+              class="text-[#212529] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-2">
+              Shipment Status for AWB123456789</h2>
+            <!-- DescriptionList -->
+            <div class="p-4 grid grid-cols-1 sm:grid-cols-2 border-b border-gray-200 dark:border-gray-700">
+              <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">From</p>
+                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">Paris, France</p>
+              </div>
+              <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 sm:pl-2">
+                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">To</p>
+                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">New York, USA</p>
+              </div>
+              <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">Carrier</p>
+                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">Global Express</p>
+              </div>
+              <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 sm:pl-2">
+                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">Expected Delivery</p>
+                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">October 26, 2024</p>
+              </div>
+            </div>
+            <!-- ProgressBar -->
+            <div class="flex flex-col gap-3 p-4 border-b border-gray-200 dark:border-gray-700">
+              <div class="flex gap-6 justify-between items-center">
+                <p class="text-[#212529] dark:text-white text-base font-bold leading-normal text-orange-500">In Transit
+                </p>
+                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">Next update: Out for
+                  Delivery</p>
+              </div>
+              <div class="rounded-full bg-gray-200 dark:bg-gray-700 h-2.5">
+                <div class="h-2.5 rounded-full bg-orange-500" style="width: 75%;"></div>
+              </div>
+              <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">Latest Update: Departed
+                from sorting facility in Paris, France</p>
+            </div>
+            <!-- Tracking History Table -->
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-[#212529] dark:text-white mb-4">Tracking History</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-[#6C757D] dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700/50">
+                    <tr>
+                      <th class="px-6 py-3" scope="col">Date &amp; Time</th>
+                      <th class="px-6 py-3" scope="col">Location</th>
+                      <th class="px-6 py-3" scope="col">Event</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white dark:bg-transparent border-b dark:border-gray-700">
+                      <td class="px-6 py-4 font-medium text-[#212529] dark:text-gray-200 whitespace-nowrap">Oct 24,
+                        2024, 08:15 AM</td>
+                      <td class="px-6 py-4">Paris, France</td>
+                      <td class="px-6 py-4">Departed from sorting facility</td>
+                    </tr>
+                    <tr class="bg-white dark:bg-transparent border-b dark:border-gray-700">
+                      <td class="px-6 py-4 font-medium text-[#212529] dark:text-gray-200 whitespace-nowrap">Oct 23,
+                        2024, 11:30 PM</td>
+                      <td class="px-6 py-4">Paris, France</td>
+                      <td class="px-6 py-4">Arrived at sorting facility</td>
+                    </tr>
+                    <tr class="bg-white dark:bg-transparent">
+                      <td class="px-6 py-4 font-medium text-[#212529] dark:text-gray-200 whitespace-nowrap">Oct 23,
+                        2024, 02:00 PM</td>
+                      <td class="px-6 py-4">Paris, France</td>
+                      <td class="px-6 py-4">Shipment picked up</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+      <footer class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-700 mt-auto">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p class="text-sm text-[#6C757D] dark:text-gray-400">© 2024 ParcelTransit. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+              <a class="text-sm text-[#6C757D] dark:text-gray-400 hover:text-[#212529] dark:hover:text-white"
+                href="#">Company Info</a>
+              <a class="text-sm text-[#6C757D] dark:text-gray-400 hover:text-[#212529] dark:hover:text-white"
+                href="#">FAQs</a>
+              <a class="text-sm text-[#6C757D] dark:text-gray-400 hover:text-[#212529] dark:hover:text-white"
+                href="#">Contact</a>
+              <a class="text-sm text-[#6C757D] dark:text-gray-400 hover:text-[#212529] dark:hover:text-white"
+                href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

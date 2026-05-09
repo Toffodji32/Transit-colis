@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Colis {{ colis.numeroColis }} - Transit Colis{% endblock %}
+
+{% block body %}
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-6 sm:px-10 py-3 sticky top-0 z-10">
+        <div class="flex items-center gap-4 text-primary">
+            <a href="{{ path('app_home') }}" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-2xl">local_shipping</span>
+                <h2 class="text-primary dark:text-white text-xl font-bold">Transit Colis</h2>
+            </a>
+        </div>
+        <div class="flex items-center gap-4">
+            {% if app.user and 'ROLE_ADMIN' in app.user.roles %}
+                <a href="{{ path('app_admin_dashboard') }}" class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary">Retour au Dashboard</a>
+            {% elseif app.user and 'ROLE_ENTREPOT' in app.user.roles %}
+                <a href="{{ path('app_entrepot_dashboard') }}" class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary">Retour au Dashboard</a>
+            {% else %}
+                <a href="{{ path('app_dashboard') }}" class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary">Retour au Dashboard</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="px-4 sm:px-6 md:px-10 py-8 max-w-4xl mx-auto">
+        <div class="mb-8">
+            <h1 class="text-3xl font-black mb-2">Détails du colis {{ colis.numeroColis }}</h1>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                {{ colis.statutActuelLibelle }}
+            </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+                <h3 class="font-bold text-lg mb-4">Informations de livraison</h3>
+                <div class="space-y-3">
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">De</p>
+                        <p class="font-medium">{{ colis.paysOrigine }}</p>
+                        {% if colis.warehouseOrigine %}
+                            <p class="text-sm text-gray-500">{{ colis.warehouseOrigine.nom }}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Vers</p>
+                        <p class="font-medium">{{ colis.paysDestination }}</p>
+                        {% if colis.warehouseDestination %}
+                            <p class="text-sm text-gray-500">{{ colis.warehouseDestination.nom }}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Date d'enregistrement</p>
+                        <p class="font-medium">{{ colis.dateEnregistrement|date('d/m/Y H:i') }}</p>
+                    </div>
+                    {% if colis.dateDepart %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Date de départ</p>
+                        <p class="font-medium">{{ colis.dateDepart|date('d/m/Y H:i') }}</p>
+                    </div>
+                    {% endif %}
+                    {% if colis.dateLivraison %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Date d'arrivée</p>
+                        <p class="font-medium">{{ colis.dateLivraison|date('d/m/Y H:i') }}</p>
+                    </div>
+                    {% endif %}
+                    {% if colis.dateLivraisonEstimee %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Livraison estimée</p>
+                        <p class="font-medium">{{ colis.dateLivraisonEstimee|date('d/m/Y') }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+                <h3 class="font-bold text-lg mb-4">Informations du colis</h3>
+                <div class="space-y-3">
+                    {% if colis.images and colis.images|length > 0 %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Photo du colis</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            {% for image in colis.images %}
+                                <img src="{{ asset('uploads/colis/' ~ image) }}" alt="Photo du colis" class="w-full rounded-lg border border-gray-200">
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Poids</p>
+                        <p class="font-medium">{{ colis.poids }} kg</p>
+                    </div>
+                    {% if colis.description %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Description</p>
+                        <p class="font-medium">{{ colis.description }}</p>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Montant</p>
+                        <p class="font-medium text-primary text-xl">{{ colis.montantFrais }} FCFA</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Paiement</p>
+                        {% if colis.statutPaiement == 'paye' %}
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Payé</span>
+                        {% else %}
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Non payé</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+            <h3 class="font-bold text-lg mb-4">Destinataire</h3>
+            <div class="space-y-2">
+                <p class="font-medium">{{ colis.destinataireNom }}</p>
+                <p class="text-gray-600 dark:text-gray-400">{{ colis.destinataireTel }}</p>
+                <p class="text-gray-600 dark:text-gray-400">{{ colis.destinataireEmail }}</p>
+                {% if colis.destinataireAdresse %}
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">{{ colis.destinataireAdresse }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+            <h3 class="font-bold text-lg mb-4">Historique du suivi</h3>
+            {% if colis.historiqueStatuts|length > 0 %}
+                <div class="space-y-4">
+                    {% for historique in colis.historiqueStatuts|reverse %}
+                        <div class="flex gap-4 border-l-2 border-primary pl-4">
+                            <div class="flex-shrink-0">
+                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                                </span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-bold">{{ historique.statutLibelle }}</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">{{ historique.dateChangement|date('d/m/Y H:i') }}</p>
+                                {% if historique.commentaire %}
+                                    <p class="text-sm text-gray-500 mt-1">{{ historique.commentaire }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-gray-500 dark:text-gray-400">Aucun historique disponible</p>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
+

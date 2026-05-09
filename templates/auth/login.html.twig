@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Connexion - Transit Colis</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <main class="flex-grow">
+                <div class="flex flex-wrap lg:flex-nowrap min-h-screen">
+                    <!-- Left Branding Panel -->
+                    <div class="relative flex w-full flex-col items-center justify-center bg-primary lg:w-2/5 p-8 lg:p-12">
+                        <div class="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-10"
+                            data-alt="Faded background image of a modern logistics warehouse with shipping containers and equipment."
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVuih56apBIgcXu3wdvR4hUp0UZyx_QVyB9kUYlf8oVmi8XbmeMpUCRZHAqQLrCWSdHVyiIb7Q61JmpoK3CRXh-X5pMHNrEJgOm6-HGTLUCJmQaCjAFbDQr1OE2izLR88WCyc0xN0ykKIQpPC4tySdYRYGmCb1dq6xan0wt2aYa-BxXc6cwJbJVPxSbVr1BgfEUcreAnmL8Lv_HEeW2Ea3okLS3-LxqLnjLBcYd5ZG8k1OZqPGqrN583hObT5ft-LSt6oy1MmM_ww");'>
+                        </div>
+                        <div class="relative z-10 flex flex-col gap-6 text-center text-white max-w-md">
+                            <div class="flex justify-center">
+                                <span class="material-symbols-outlined text-6xl">local_shipping</span>
+                            </div>
+                            <h1 class="text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl">Transit Colis Nigeria-Bénin</h1>
+                            <h2 class="text-base font-normal leading-normal md:text-lg">Connectez-vous pour gérer vos expéditions</h2>
+                        </div>
+                    </div>
+                    <!-- Right Form Panel -->
+                    <div class="flex w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark lg:w-3/5 p-8 lg:p-16">
+                        <div class="w-full max-w-md">
+                            <!-- Header -->
+                            <div class="flex flex-col gap-3 mb-8">
+                                <p class="text-[#111318] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Bienvenue</p>
+                                <p class="text-[#616f89] dark:text-gray-400 text-base font-normal leading-normal">Connectez-vous pour continuer</p>
+                            </div>
+                            <!-- Tabs -->
+                            <div class="mb-6">
+                                <div class="flex border-b border-[#dbdfe6] dark:border-gray-700 gap-8">
+                                    <a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-[13px] pt-4" href="{{ path('app_login') }}">
+                                        <p class="text-sm font-bold leading-normal tracking-[0.015em]">Connexion</p>
+                                    </a>
+                                    <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#616f89] dark:text-gray-400 pb-[13px] pt-4 hover:text-primary dark:hover:text-primary transition-colors duration-200" href="{{ path('app_register') }}">
+                                        <p class="text-sm font-bold leading-normal tracking-[0.015em]">S'inscrire</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Flash Messages -->
+                            {% for message in app.flashes('success') %}
+                                <div class="mb-4 p-4 rounded-lg bg-green-100 text-green-800 border border-green-200">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            <!-- Login Form -->
+                            <form method="post" class="flex flex-col gap-6">
+                                {% if error %}
+                                    <div class="p-4 rounded-lg bg-red-100 text-red-800 border border-red-200">
+                                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                                    </div>
+                                {% endif %}
+                                <!-- Email Field -->
+                                <div class="flex flex-wrap items-end gap-4">
+                                    <label class="flex flex-col min-w-40 flex-1">
+                                        <p class="text-[#111318] dark:text-white text-sm font-medium leading-normal pb-2">Email</p>
+                                        <input
+                                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbdfe6] dark:border-gray-700 bg-white dark:bg-background-dark focus:border-primary dark:focus:border-primary h-14 placeholder:text-[#616f89] dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal"
+                                            placeholder="Entrez votre email" type="email" name="_username" value="{{ last_username }}" required autofocus />
+                                    </label>
+                                </div>
+                                <!-- Password Field -->
+                                <div class="flex flex-wrap items-end gap-4">
+                                    <label class="flex flex-col min-w-40 flex-1">
+                                        <div class="flex justify-between items-center pb-2">
+                                            <p class="text-[#111318] dark:text-white text-sm font-medium leading-normal">Mot de passe</p>
+                                            <a class="text-primary text-sm font-medium hover:underline" href="#">Mot de passe oublié ?</a>
+                                        </div>
+                                        <div class="relative w-full">
+                                            <input
+                                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbdfe6] dark:border-gray-700 bg-white dark:bg-background-dark focus:border-primary dark:focus:border-primary h-14 placeholder:text-[#616f89] dark:placeholder:text-gray-500 p-[15px] pr-12 text-base font-normal leading-normal"
+                                                placeholder="Entrez votre mot de passe" type="password" name="_password" value="" required />
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-4 text-[#616f89] dark:text-gray-400">
+                                                <span class="material-symbols-outlined cursor-pointer">visibility_off</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                <!-- CTA Button -->
+                                <button
+                                    class="flex items-center justify-center h-14 w-full rounded-lg bg-primary text-white text-base font-bold leading-normal shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-colors duration-200"
+                                    type="submit">Se connecter</button>
+                                <!-- Secondary Link -->
+                                <p class="text-center text-sm text-[#616f89] dark:text-gray-400">
+                                    Vous n'avez pas de compte ? <a class="font-bold text-primary hover:underline" href="{{ path('app_register') }}">Créer un compte</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,62 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Gestion Entrepôts - Admin{% endblock %}
+
+{% block page_title %}Gestion Entrepôts{% endblock %}
+
+{% block admin_content %}
+    {% for message in app.flashes('success') %}
+        <div class="mb-4 p-4 rounded-lg bg-green-100 text-green-800 border border-green-200">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="flex justify-end mb-6">
+        <a href="{{ path('app_admin_warehouse_new') }}" class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 shadow-sm">
+            <span class="material-symbols-outlined text-sm">add</span>
+            Nouvel Entrepôt
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {% for warehouse in warehouses %}
+            <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ warehouse.nom }}</h3>
+                        <p class="text-sm text-gray-500">{{ warehouse.pays }}</p>
+                    </div>
+                    <a href="{{ path('app_admin_warehouse_edit', {id: warehouse.id}) }}" class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined">edit</span>
+                    </a>
+                </div>
+
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">location_on</span>
+                        <div>
+                            <p class="font-medium">{{ warehouse.adresse }}</p>
+                            <p class="text-gray-600 dark:text-gray-400">{{ warehouse.ville }}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">phone</span>
+                        <p>{{ warehouse.telephone }}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">email</span>
+                        <p>{{ warehouse.email }}</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">schedule</span>
+                        <p class="text-gray-600 dark:text-gray-400">{{ warehouse.horairesOuverture }}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">inventory</span>
+                        <p>Capacité : {{ warehouse.capaciteMaximale }} kg</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

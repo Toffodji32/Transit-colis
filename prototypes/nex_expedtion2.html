@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Create New Shipment - ParcelTransit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <header
+      class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 px-6 sm:px-10 lg:px-20 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+      <div class="flex items-center gap-4 text-gray-900 dark:text-white">
+        <div class="w-8 h-8 text-primary">
+          <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_6_330)">
+              <path clip-rule="evenodd"
+                d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                fill-rule="evenodd"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_6_330">
+                <rect fill="white" height="48" width="48"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <h2 class="text-lg font-bold tracking-tight">ParcelTransit</h2>
+      </div>
+      <nav class="hidden md:flex flex-1 justify-center items-center gap-8">
+        <a class="text-gray-900 dark:text-gray-200 text-sm font-medium" href="#">Dashboard</a>
+        <a class="text-primary text-sm font-semibold" href="#">Shipments</a>
+        <a class="text-gray-900 dark:text-gray-200 text-sm font-medium" href="#">Reports</a>
+        <a class="text-gray-900 dark:text-gray-200 text-sm font-medium" href="#">Settings</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button
+          class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-wide">
+          <span class="truncate">New Shipment</span>
+        </button>
+        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZS5LSOEK9-CNX3Zxtr__JOL5p3scIbHpGvSKZxhDrq8dU3FH4isayiElyRQ2LBBqhhqOi6q9awn3SSn_nxQkOk8VDaV9PdkGwgKm9iUTx6WNc96jIMtxv1lwAqY19pvM_ftwrQnADQLdeZ56Y9Ho7K0f0yh13IwUctgVaMcHAeQVntqXlpB9cCXrMxys-FG6tiTM4G11t9hUueRLVmfX46RGUzdQxpb5W8Ow1TCGmsWEmOCjCv96dfhZ3dSU3DGynWfu5hldlpYY");'>
+        </div>
+      </div>
+    </header>
+    <main class="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8">
+      <div class="w-full max-w-6xl">
+        <div class="mb-8">
+          <h1 class="text-gray-900 dark:text-white text-4xl font-black tracking-tighter">Créer une nouvelle expédition
+          </h1>
+        </div>
+        <div class="flex flex-col gap-2 mb-10">
+          <div class="flex gap-6 justify-between">
+            <p class="text-gray-900 dark:text-white text-base font-medium">Étape 2 sur 5 : Point de départ</p>
+          </div>
+          <div class="rounded-full bg-gray-200 dark:bg-gray-700 h-2">
+            <div class="h-2 rounded-full bg-primary" style="width: 40%;"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="lg:col-span-2">
+            <div class="bg-white dark:bg-gray-900/50 p-6 sm:p-8 rounded-xl shadow-sm">
+              <h2 class="text-gray-900 dark:text-white text-2xl font-bold tracking-tight pb-2">2. Choisissez un point de
+                départ</h2>
+              <p class="text-gray-600 dark:text-gray-400 pb-6">Sélectionnez comment vous souhaitez nous remettre votre
+                colis.</p>
+              <div class="space-y-4">
+                <div
+                  class="flex items-start gap-4 p-4 border border-primary dark:border-primary rounded-xl bg-primary/5 dark:bg-primary/10">
+                  <span class="material-symbols-outlined text-primary mt-1">radio_button_checked</span>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-white">Déposer dans l'un de nos entrepôts</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Trouvez l'entrepôt ParcelTransit le plus
+                      proche pour déposer votre colis vous-même.</p>
+                    <div class="mt-4">
+                      <label class="sr-only" for="warehouse-select">Sélectionnez un entrepôt</label>
+                      <select
+                        class="form-select flex w-full min-w-0 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-3 text-sm font-normal"
+                        id="warehouse-select">
+                        <option>Entrepôt Central - Paris (75001)</option>
+                        <option>Entrepôt Sud - Marseille (13001)</option>
+                        <option>Entrepôt Ouest - Bordeaux (33000)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 border border-gray-300 dark:border-gray-700 rounded-xl">
+                  <span
+                    class="material-symbols-outlined text-gray-400 dark:text-gray-500 mt-1">radio_button_unchecked</span>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-white">Planifier une collecte</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Nous venons chercher le colis à votre
+                      adresse. Des frais supplémentaires peuvent s'appliquer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-end gap-4 mt-8">
+              <button
+                class="flex items-center justify-center rounded-lg h-12 px-6 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-sm font-bold tracking-wide">
+                <span class="truncate">Retour</span>
+              </button>
+              <button
+                class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold tracking-wide">
+                <span class="truncate">Continuer</span>
+              </button>
+            </div>
+          </div>
+          <div class="lg:col-span-1">
+            <div class="bg-white dark:bg-gray-900/50 p-6 rounded-xl shadow-sm sticky top-28">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Résumé de l'expédition</h3>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-600 dark:text-gray-400">Détails du colis</span>
+                  <span class="font-medium text-gray-800 dark:text-gray-200">Confirmé</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600 dark:text-gray-400">Point de départ</span>
+                  <span class="font-medium text-gray-800 dark:text-gray-200">En attente...</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600 dark:text-gray-400">Adresses</span>
+                  <span class="font-medium text-gray-800 dark:text-gray-200">En attente...</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600 dark:text-gray-400">Service</span>
+                  <span class="font-medium text-gray-800 dark:text-gray-200">En attente...</span>
+                </div>
+              </div>
+              <hr class="my-4 border-gray-200 dark:border-gray-700" />
+              <div class="flex justify-between items-center">
+                <span class="text-base font-bold text-gray-900 dark:text-white">Coût estimé</span>
+                <span class="text-xl font-bold text-primary">--.--</span>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Le coût final sera calculé dans les prochaines
+                étapes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>

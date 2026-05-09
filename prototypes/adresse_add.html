@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Addresses - Parcel Transit App</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full">
+        <!-- SideNavBar -->
+        <aside
+            class="flex h-screen w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-4 sticky top-0">
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        data-alt="User profile picture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuB8YOCvP7bDFRcXNcCLBGT2x5il4iuTBv9qjSw2uGZohp35WqJLOGlBhCNLuymYS9yoHS7zS1UdIerUrd8flC3u6jVV9W8gmpjuBGRMLmymbbSAIKhfxujhx8POZW0Oy4TLagCU-BEVOreH4XLdaxucyfNPPQe4WiT2jN3kIT-A6SnvCdo_2m2UZamuCrSp0OkXC9lZYHjcOIdtjtaIcrsJCT2MLgmS9imkuTV3IIyQBPvXsNspefZAXQpdJi0CluAuDZFCobZno");'>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-gray-900 dark:text-white text-base font-medium leading-normal">Jean Dupont</h1>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">
+                            jean.dupont@email.com</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-2 mt-4">
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined text-gray-800 dark:text-gray-200">dashboard</span>
+                        <p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Dashboard</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined text-gray-800 dark:text-gray-200">local_shipping</span>
+                        <p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Shipments</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30" href="#">
+                        <span class="material-symbols-outlined text-primary dark:text-sky-300"
+                            style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        <p class="text-primary dark:text-sky-300 text-sm font-medium leading-normal">My Addresses</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined text-gray-800 dark:text-gray-200">credit_card</span>
+                        <p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Billing</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined text-gray-800 dark:text-gray-200">settings</span>
+                        <p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Settings</p>
+                    </a>
+                </nav>
+            </div>
+            <div class="mt-auto flex flex-col gap-4">
+                <button
+                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                    <span class="truncate">New Shipment</span>
+                </button>
+                <div class="flex flex-col gap-1 border-t border-gray-200 dark:border-gray-800 pt-4">
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined text-gray-800 dark:text-gray-200">help</span>
+                        <p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Help Center</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined text-gray-800 dark:text-gray-200">logout</span>
+                        <p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Logout</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <div class="w-full max-w-4xl mx-auto">
+                <!-- Breadcrumbs -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <a class="text-gray-500 dark:text-gray-400 text-base font-medium leading-normal hover:text-primary dark:hover:text-sky-300"
+                        href="#">Home</a>
+                    <span class="text-gray-500 dark:text-gray-400 text-base font-medium leading-normal">/</span>
+                    <a class="text-gray-500 dark:text-gray-400 text-base font-medium leading-normal hover:text-primary dark:hover:text-sky-300"
+                        href="#">My Account</a>
+                    <span class="text-gray-500 dark:text-gray-400 text-base font-medium leading-normal">/</span>
+                    <span class="text-gray-900 dark:text-white text-base font-medium leading-normal">My Addresses</span>
+                </div>
+                <!-- PageHeading -->
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                            My Addresses</h1>
+                        <p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Manage your
+                            saved shipping and receiving addresses for faster checkout.</p>
+                    </div>
+                    <button
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                        <span class="truncate">Add a new address</span>
+                    </button>
+                </div>
+                <!-- SearchBar -->
+                <div class="mb-6">
+                    <label class="flex flex-col min-w-40 h-12 w-full">
+                        <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                            <div
+                                class="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-gray-900 items-center justify-center pl-4 rounded-l-lg border border-gray-300 dark:border-gray-700 border-r-0">
+                                <span class="material-symbols-outlined">search</span>
+                            </div>
+                            <input
+                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 h-full placeholder:text-gray-500 dark:placeholder-text-gray-400 px-4 border-l-0 text-base font-normal leading-normal"
+                                placeholder="Find an address by name or city" value="" />
+                        </div>
+                    </label>
+                </div>
+                <!-- Address List -->
+                <div class="flex flex-col gap-4">
+                    <!-- ListItem 1 (Default) -->
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 bg-white dark:bg-gray-900 p-4 rounded-xl border border-primary/50 dark:border-primary/70 shadow-sm">
+                        <div class="flex flex-1 items-start gap-4">
+                            <div
+                                class="text-primary dark:text-sky-300 flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 shrink-0 size-12">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 1;">home_pin</span>
+                            </div>
+                            <div class="flex flex-1 flex-col justify-center">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Home
+                                        Address</p>
+                                    <span
+                                        class="text-xs font-bold text-green-700 bg-green-100 dark:text-green-200 dark:bg-green-800/50 px-2 py-0.5 rounded-full">Default</span>
+                                </div>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">123 Rue
+                                    de Rivoli, 75001 Paris, France</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Jean
+                                    Dupont</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex items-center justify-end sm:justify-center gap-2">
+                            <button
+                                class="flex items-center justify-center size-9 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                            </button>
+                            <button
+                                class="flex items-center justify-center size-9 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ListItem 2 -->
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <div class="flex flex-1 items-start gap-4">
+                            <div
+                                class="text-gray-600 dark:text-gray-300 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 shrink-0 size-12">
+                                <span class="material-symbols-outlined">work</span>
+                            </div>
+                            <div class="flex flex-1 flex-col justify-center">
+                                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal mb-1">
+                                    Office Address</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">99 Rue de
+                                    Rennes, 75006 Paris, France</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">ACME Corp
+                                    (Jean Dupont)</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex items-center justify-end sm:justify-center gap-2">
+                            <button class="text-primary dark:text-sky-300 text-sm font-bold hover:underline">Set as
+                                Default</button>
+                            <button
+                                class="flex items-center justify-center size-9 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                            </button>
+                            <button
+                                class="flex items-center justify-center size-9 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ListItem 3 -->
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <div class="flex flex-1 items-start gap-4">
+                            <div
+                                class="text-gray-600 dark:text-gray-300 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 shrink-0 size-12">
+                                <span class="material-symbols-outlined">warehouse</span>
+                            </div>
+                            <div class="flex flex-1 flex-col justify-center">
+                                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal mb-1">
+                                    Warehouse</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">5 Avenue
+                                    Anatole France, 75007 Paris, France</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Logistics
+                                    Dept.</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex items-center justify-end sm:justify-center gap-2">
+                            <button class="text-primary dark:text-sky-300 text-sm font-bold hover:underline">Set as
+                                Default</button>
+                            <button
+                                class="flex items-center justify-center size-9 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                            </button>
+                            <button
+                                class="flex items-center justify-center size-9 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

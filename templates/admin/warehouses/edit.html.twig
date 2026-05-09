@@ -1,0 +1,82 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier Entrepôt - Admin{% endblock %}
+
+{% block page_title %}Modifier Entrepôt{% endblock %}
+
+{% block admin_content %}
+    {% for message in app.flashes('error') %}
+        <div class="mb-4 p-4 rounded-lg bg-red-100 text-red-800 border border-red-200">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <form method="post" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
+        <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Nom de l'entrepôt *</label>
+                    <input type="text" name="nom" value="{{ warehouse.nom }}" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Pays *</label>
+                    <select name="pays" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+                        <option value="Nigeria" {{ warehouse.pays == 'Nigeria' ? 'selected' : '' }}>Nigeria</option>
+                        <option value="Benin" {{ warehouse.pays == 'Benin' ? 'selected' : '' }}>Bénin</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Adresse complète *</label>
+                <textarea name="adresse" rows="2" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">{{ warehouse.adresse }}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Ville *</label>
+                    <input type="text" name="ville" value="{{ warehouse.ville }}" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Téléphone *</label>
+                    <input type="tel" name="telephone" value="{{ warehouse.telephone }}" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Email *</label>
+                <input type="email" name="email" value="{{ warehouse.email }}" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Horaires d'ouverture *</label>
+                <input type="text" name="horaires_ouverture" value="{{ warehouse.horairesOuverture }}" required placeholder="Lundi - Vendredi: 8h - 18h" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Capacité maximale (kg) *</label>
+                <input type="text" name="capacite_maximale" value="{{ warehouse.capaciteMaximale }}" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Responsable (optionnel)</label>
+                <select name="responsable_id" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-3">
+                    <option value="">Aucun responsable</option>
+                    {% for user in usersEntrepot %}
+                        <option value="{{ user.id }}" {{ warehouse.responsable and warehouse.responsable.id == user.id ? 'selected' : '' }}>{{ user.fullName }} ({{ user.email }})</option>
+                    {% endfor %}
+                </select>
+                <p class="text-xs text-gray-500 mt-1">Sélectionnez un utilisateur avec ROLE_ENTREPOT</p>
+            </div>
+        </div>
+
+        <div class="flex justify-end gap-4 mt-8">
+            <a href="{{ path('app_admin_warehouses') }}" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+                Annuler
+            </a>
+            <button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-700">
+                Enregistrer
+            </button>
+        </div>
+    </form>
+{% endblock %}

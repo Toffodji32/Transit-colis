@@ -1,0 +1,40 @@
+{# Navbar component for the application #}
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark h-16">
+            <div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+                <a href="{{ path('app_home') }}" class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Transit Colis</h2>
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="{{ path('app_home') }}">Accueil</a>
+                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="{{ path('app_tracking') }}">Suivi</a>
+                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="{{ path('app_pricing') }}">Tarifs</a>
+                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="#">FAQ</a>
+                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="#">Contact</a>
+            </nav>
+            
+            <div class="flex gap-2">
+                {% if app.user %}
+                    <a href="{{ path('app_dashboard') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700">
+                        <span class="truncate">Dashboard</span>
+                    </a>
+                    <a href="{{ path('app_logout') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-card-dark text-text-light dark:text-text-dark border border-border-light dark:border-border-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-slate-700">
+                        <span class="truncate">Déconnexion</span>
+                    </a>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-card-dark text-text-light dark:text-text-dark border border-border-light dark:border-border-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-slate-700">
+                        <span class="truncate">Se connecter</span>
+                    </a>
+                    <a href="{{ path('app_register') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700">
+                        <span class="truncate">S'inscrire</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+

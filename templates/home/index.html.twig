@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Transit Colis Nigeria-Bénin{% endblock %}
+
+{% block body %}
+    {% include 'components/navbar.html.twig' %}
+
+    <main class="flex-1">
+        <!-- HeroSection -->
+        <section class="relative w-full py-20 lg:py-32">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            data-alt="Logistics warehouse with many packages on shelves."
+            style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVuih56apBIgcXu3wdvR4hUp0UZyx_QVyB9kUYlf8oVmi8XbmeMpUCRZHAqQLrCWSdHVyiIb7Q61JmpoK3CRXh-X5pMHNrEJgOm6-HGTLUCJmQaCjAFbDQr1OE2izLR88WCyc0xN0ykKIQpPC4tySdYRYGmCb1dq6xan0wt2aYa-BxXc6cwJbJVPxSbVr1BgfEUcreAnmL8Lv_HEeW2Ea3okLS3-LxqLnjLBcYd5ZG8k1OZqPGqrN583hObT5ft-LSt6oy1MmM_ww");'></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <div class="flex flex-col items-center gap-6">
+                    <h1 class="text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl">Votre colis Nigeria-Bénin, suivi en temps réel</h1>
+                    <h2 class="text-lg font-normal leading-normal max-w-2xl">Expédition rapide, sécurisée et fiable entre le Nigeria et le Bénin</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row items-center gap-4 w-full max-w-2xl">
+                        <form action="{{ path('app_tracking') }}" method="get" class="flex flex-col h-14 w-full">
+                            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                                <div class="text-gray-500 flex bg-white items-center justify-center pl-4 rounded-l-lg border-r-0">
+                                    <span class="material-symbols-outlined text-gray-400">search</span>
+                                </div>
+                                <input 
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-none text-text-light focus:outline-0 focus:ring-0 border-0 bg-white h-full placeholder:text-gray-500 text-base font-normal leading-normal" 
+                                    placeholder="Entrez le numéro de suivi" 
+                                    name="numero"
+                                    value=""
+                                    required
+                                />
+                                <div class="flex items-center justify-center rounded-r-lg border-l-0 bg-white pr-2">
+                                    <button type="submit" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-blue-700">
+                                        <span class="truncate">Suivre</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    {% if not app.user %}
+                    <a href="{{ path('app_register') }}" class="mt-2 flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-orange-500 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-orange-600">
+                        <span class="truncate">Créer une expédition</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <!-- FeatureSection -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <div class="flex flex-col gap-10">
+                <div class="flex flex-col gap-4 text-center">
+                    <h2 class="text-3xl font-bold leading-tight tracking-[-0.033em] md:text-4xl">Pourquoi choisir Transit Colis ?</h2>
+                    <p class="text-base font-normal leading-normal max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+                        Nous offrons une expérience d'expédition transparente et fiable, spécialement conçue pour le transport Nigeria-Bénin.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                        <span class="material-symbols-outlined text-primary text-4xl">location_on</span>
+                        <div class="flex flex-col gap-1 mt-2">
+                            <h3 class="text-lg font-bold leading-tight">Nigeria - Bénin</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">
+                                Transport spécialisé entre Lagos et Cotonou avec entrepôts dans chaque pays.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                        <span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+                        <div class="flex flex-col gap-1 mt-2">
+                            <h3 class="text-lg font-bold leading-tight">Sécurisé et suivi</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">
+                                Traçabilité complète de votre colis avec notifications en temps réel.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                        <span class="material-symbols-outlined text-primary text-4xl">price_check</span>
+                        <div class="flex flex-col gap-1 mt-2">
+                            <h3 class="text-lg font-bold leading-tight">Tarifs transparents</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">
+                                Prix compétitifs calculés au poids, sans frais cachés.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col items-center text-center">
+                        <span class="material-symbols-outlined text-primary text-4xl">support_agent</span>
+                        <div class="flex flex-col gap-1 mt-2">
+                            <h3 class="text-lg font-bold leading-tight">Support local</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-300">
+                                Équipe dédiée disponible pour vous aider en français et anglais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-card-light dark:bg-card-dark py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col gap-4 text-center mb-12">
+                    <h2 class="text-3xl font-bold leading-tight tracking-[-0.033em] md:text-4xl">Fait confiance par des clients satisfaits</h2>
+                    <p class="text-base font-normal text-gray-600 dark:text-gray-300">Découvrez les témoignages de nos clients</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                        <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-primary text-4xl">person</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">"Service rapide et professionnel. Mon colis est arrivé à Cotonou en 3 jours !"</p>
+                        <h4 class="font-bold mt-4">Amélie K.</h4>
+                        <p class="text-sm text-gray-500">Entrepreneuse, Lagos</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                        <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-primary text-4xl">person</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">"Le suivi en temps réel m'a permis de suivre mon colis étape par étape. Excellent !"</p>
+                        <h4 class="font-bold mt-4">Jean M.</h4>
+                        <p class="text-sm text-gray-500">Particulier, Cotonou</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 rounded-xl">
+                        <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-primary text-4xl">person</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">"Les tarifs sont très avantageux et le service client toujours réactif."</p>
+                        <h4 class="font-bold mt-4">Sarah T.</h4>
+                        <p class="text-sm text-gray-500">Commerçante, Porto-Novo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call-to-Action (CTA) Block -->
+        <section class="bg-primary text-white py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold leading-tight tracking-[-0.033em] md:text-4xl">Prêt à expédier en toute confiance ?</h2>
+                <p class="mt-4 max-w-2xl mx-auto">
+                    Rejoignez des centaines de clients satisfaits et simplifiez vos envois entre Nigeria et Bénin.
+                </p>
+                {% if not app.user %}
+                <div class="mt-8">
+                    <a href="{{ path('app_register') }}" class="inline-flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-200">
+                        <span class="truncate">S'inscrire gratuitement</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    {% include 'components/footer.html.twig' %}
+{% endblock %}
+

@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suivi de Colis - Transit Colis{% endblock %}
+
+{% block body %}
+    {% include 'components/navbar.html.twig' %}
+
+    <main class="flex-1 px-4 sm:px-10 lg:px-20 xl:px-40 py-10">
+        <div class="layout-content-container flex flex-col max-w-4xl mx-auto w-full">
+            <!-- HeroSection -->
+            <div class="@container mb-12">
+                <div class="flex min-h-[400px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-center justify-center p-4"
+                    style='background-image: linear-gradient(rgba(19, 91, 236, 0.5) 0%, rgba(10, 77, 170, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVuih56apBIgcXu3wdvR4hUp0UZyx_QVyB9kUYlf8oVmi8XbmeMpUCRZHAqQLrCWSdHVyiIb7Q61JmpoK3CRXh-X5pMHNrEJgOm6-HGTLUCJmQaCjAFbDQr1OE2izLR88WCyc0xN0ykKIQpPC4tySdYRYGmCb1dq6xan0wt2aYa-BxXc6cwJbJVPxSbVr1BgfEUcreAnmL8Lv_HEeW2Ea3okLS3-LxqLnjLBcYd5ZG8k1OZqPGqrN583hObT5ft-LSt6oy1MmM_ww");'>
+                    <div class="flex flex-col gap-2 text-center">
+                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                            Suivez votre colis Nigeria-Bénin
+                        </h1>
+                        <h2 class="text-white/90 text-sm font-normal leading-normal @[480px]:text-base max-w-xl">
+                            Entrez votre numéro de suivi pour voir le statut en temps réel
+                        </h2>
+                    </div>
+                    <form action="{{ path('app_tracking') }}" method="get" class="flex flex-col min-w-40 h-14 w-full max-w-[480px] @[480px]:h-16">
+                        <div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-lg">
+                            <div class="text-gray-500 flex border border-gray-300 bg-white items-center justify-center pl-[15px] rounded-l-lg border-r-0">
+                                <span class="material-symbols-outlined">search</span>
+                            </div>
+                            <input
+                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#212529] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 bg-white h-full placeholder:text-[#6C757D] px-2 border-r-0 border-l-0 text-sm font-normal leading-normal @[480px]:text-base"
+                                placeholder="Entrez votre numéro de suivi" name="numero" value="{{ numeroRecherche ?? '' }}" required />
+                            <div class="flex items-center justify-center rounded-r-lg border-l-0 border border-gray-300 bg-white pr-2">
+                                <button
+                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base hover:bg-primary/90 transition-colors">
+                                    <span class="truncate">Rechercher</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            {% if numeroRecherche %}
+                {% if colis %}
+                    <div class="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-4 sm:p-6 md:p-8">
+                        <!-- SectionHeader -->
+                        <h2 class="text-[#212529] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-2">
+                            Statut du colis {{ colis.numeroColis }}
+                        </h2>
+                        
+                        <!-- DescriptionList -->
+                        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 border-b border-gray-200 dark:border-gray-700">
+                            <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+                                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">De</p>
+                                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">{{ colis.paysOrigine }}</p>
+                            </div>
+                            <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 sm:pl-2">
+                                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">Vers</p>
+                                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">{{ colis.paysDestination }}</p>
+                            </div>
+                            <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+                                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">Poids</p>
+                                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">{{ colis.poids }} kg</p>
+                            </div>
+                            <div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 sm:pl-2">
+                                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">Livraison estimée</p>
+                                <p class="text-[#212529] dark:text-gray-200 text-sm font-medium leading-normal">
+                                    {{ colis.dateLivraisonEstimee ? colis.dateLivraisonEstimee|date('d M, Y') : 'Non disponible' }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ProgressBar -->
+                        <div class="flex flex-col gap-3 p-4 border-b border-gray-200 dark:border-gray-700">
+                            <div class="flex gap-6 justify-between items-center">
+                                <p class="text-[#212529] dark:text-white text-base font-bold leading-normal text-orange-500">
+                                    {{ colis.statutActuelLibelle }}
+                                </p>
+                                <p class="text-[#6C757D] dark:text-gray-400 text-sm font-normal leading-normal">
+                                    {% if colis.statutActuel == 'enregistre' %}
+                                        Prochaine étape: En préparation
+                                    {% elseif colis.statutActuel == 'en_preparation' %}
+                                        Prochaine étape: En transit
+                                    {% elseif colis.statutActuel == 'en_transit' %}
+                                        Prochaine étape: Arrivée à destination
+                                    {% elseif colis.statutActuel == 'arrive_destination' %}
+                                        Prochaine étape: Prêt pour retrait
+                                    {% elseif colis.statutActuel == 'pret_retrait' %}
+                                        Prochaine étape: Livraison
+                                    {% else %}
+                                        Complété
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="rounded-full bg-gray-200 dark:bg-gray-700 h-2.5">
+                                {% set progressMap = {
+                                    'enregistre': 15,
+                                    'en_preparation': 30,
+                                    'en_transit': 50,
+                                    'arrive_destination': 75,
+                                    'pret_retrait': 90,
+                                    'livre': 100
+                                } %}
+                                <div class="h-2.5 rounded-full bg-orange-500 transition-all duration-500" 
+                                     style="width: {{ progressMap[colis.statutActuel]|default(0) }}%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tracking History Table -->
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-[#212529] dark:text-white mb-4">Historique du suivi</h3>
+                            {% if colis.historiqueStatuts|length > 0 %}
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                        <thead class="text-xs text-[#6C757D] dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700/50">
+                                            <tr>
+                                                <th class="px-6 py-3" scope="col">Date & Heure</th>
+                                                <th class="px-6 py-3" scope="col">Statut</th>
+                                                <th class="px-6 py-3" scope="col">Détails</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for historique in colis.historiqueStatuts|reverse %}
+                                                <tr class="bg-white dark:bg-transparent border-b dark:border-gray-700">
+                                                    <td class="px-6 py-4 font-medium text-[#212529] dark:text-gray-200 whitespace-nowrap">
+                                                        {{ historique.dateChangement|date('d M, Y H:i') }}
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                                            {{ historique.statutLibelle }}
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        {{ historique.commentaire ?? '-' }}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p class="text-gray-500 dark:text-gray-400">Aucun historique disponible pour le moment.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-8 text-center">
+                        <span class="material-symbols-outlined text-6xl text-gray-300 mb-4">error_outline</span>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">Colis introuvable</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Le numéro de suivi "{{ numeroRecherche }}" n'existe pas dans notre système.</p>
+                    </div>
+                {% endif %}
+            {% endif %}
+</div>
+    </main>
+
+    {% include 'components/footer.html.twig' %}
+{% endblock %}
