@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "▶ Correction des permissions..."
+mkdir -p /var/www/html/var/cache/prod/asset_mapper
 chmod -R 777 /var/www/html/var/
 
 echo "▶ Lancement des migrations..."
