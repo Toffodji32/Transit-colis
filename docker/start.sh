@@ -1,4 +1,7 @@
 #!/bin/sh
+echo "▶ Correction des permissions..."
+chmod -R 777 /var/www/html/var/
+
 echo "▶ Lancement des migrations..."
 php bin/console doctrine:migrations:migrate --no-interaction --env=prod
 

@@ -25,7 +25,9 @@ RUN APP_ENV=prod COMPOSER_ALLOW_SUPERUSER=1 composer install \
     --no-scripts
 
 # Permissions sur var/
-RUN mkdir -p var && chown -R www-data:www-data var/
+RUN mkdir -p var/cache var/log var/cache/prod \
+    && chown -R www-data:www-data var/ \
+    && chmod -R 777 var/
 
 # Config nginx et script de démarrage
 COPY docker/nginx.conf /etc/nginx/nginx.conf
