@@ -14,13 +14,10 @@ WORKDIR /var/www/html
 
 COPY . .
 
-RUN APP_ENV=prod COMPOSER_ALLOW_SUPERUSER=1 composer install \
-    --no-dev \
-    --optimize-autoloader \
-    --no-interaction \
-    --no-scripts
+RUN APP_ENV=prod COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader --no-interaction
 
 RUN mkdir -p var/cache/prod var/log \
+    && APP_ENV=prod php bin/console importmap:install \
     && APP_ENV=prod php bin/console asset-map:compile \
     && chmod -R 777 /var/www/html/var/ \
     && chown -R www-data:www-data /var/www/html/
